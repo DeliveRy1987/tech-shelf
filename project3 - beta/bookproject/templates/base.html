@@ -18,15 +18,15 @@
             <a class="navbar-brand icontext" href="#">We Tech Shelf</a>
             
             <a class="nav-link mx-3 highlight-text" href="{% url 'index' %}">HOME</a>
-            <a class="nav-link mx-3 highlight-text" href="{% url 'list-book' %}">書籍一覧</a>
-            <a class="nav-link mx-3 highlight-text" href="{% url 'create-book' %}">書籍登録</a>
+            <a class="nav-link mx-3 highlight-text" href="{% url 'list-book' %}">技術書一覧</a>
+            <a class="nav-link mx-3 highlight-text" href="{% url 'create-book' %}">技術書追加</a>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Others
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="{% url 'mypage' %}">My Page</a></li>
-                  <li><a class="dropdown-item" href="{% url 'list-book' %}">Another action</a></li>
+                  <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">ログアウト</a></li>
                   <li><a class="dropdown-item" href="{% url 'question'%}">お問い合わせ</a></li>
                 </ul>
             </div>
