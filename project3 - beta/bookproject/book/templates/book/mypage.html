@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}My Page{% endblock title %}
+
+{% block content %}
+<h2>{{ user }}さんのマイページ</h2>
+
+{% if favorite_books %}
+ 
+    {% for favorite in favorite_books %}
+    <ul>
+      <li>
+       
+        <a href="{% url 'detail-book' favorite.book.pk %}">{{ favorite.book.title }}</a>
+      </li>
+    </ul>
+    {% endfor %}
+  
+{% else %}
+  <p>お気に入りに追加された投稿はありません。</p>
+{% endif %}
+    
+{% endblock content %}
