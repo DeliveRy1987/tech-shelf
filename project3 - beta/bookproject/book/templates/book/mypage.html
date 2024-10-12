@@ -1,31 +1,31 @@
 {% extends 'base.html' %}
 
-{% block title %}My Page{% endblock title %}
+{% block title %}「My Page」{% endblock title %}
 
 {% block content %}
 <h2>{{ user }}さんのMyPage</h2>
 
+
 {% if favorite_books %}
-
+<div class="row neworder">
   {% for favorite in favorite_books %}
-  <div class="row neworder">
-    <div class="p-4 m-4 bg-light border border-primary rounded disp1 item">
+  <div class="p-4 m-4 bg-light border border-primary rounded disp1 item">
 
-        <h2 class="text-dark text-truncate">{{ favorite.book.title }}</h2>
-        <img src="{{ favorite.book.thumbnail.url }}" class="img-thumbnail" alt="thumbnail">
-        <h6 >カテゴリ: {{ favorite.book.category }}</h6>
-        {% if item.price == Null%}
-        <h6>価格：不明</h6>
-        {% else %}
-        <h6>価格：{{ favorite.book.price }} 円</h6>
-        {% endif %}
-        <div class="mt-3">
-          <a href="{% url 'detail-book' favorite.book.pk %}">詳細へ</a>
-        
-        </div>
+    <h2 class="text-dark text-truncate">{{ favorite.book.title }}</h2>
+    <img src="{{ favorite.book.thumbnail.url }}" class="img-thumbnail disp1" alt="thumbnail">
+    <h6 >カテゴリ: {{ favorite.book.category }}</h6>
+    {% if item.price == Null %}
+    <h6>価格：不明</h6>
+    {% else %}
+    <h6>価格：{{ favorite.book.price }} 円</h6>
+    {% endif %}
+    <div class="mt-3">
+      <a href="{% url 'detail-book' favorite.book.pk %}">詳細へ</a>
     </div>
   </div>
   {% endfor %}
+</div>
+  
 {% else %}
   <p>お気に入りに追加された投稿はありません。</p>
 {% endif %}
