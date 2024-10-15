@@ -26,6 +26,7 @@
 
     <a href="{% url 'review' object.pk%}" class="btn btn-primary">レビューする</a>
     <a href="{% url 'add-to-favorites' book.pk %}" class="btn btn-primary">マイページに追加</a>
+    <a href="{% url 'add-to-havereadbooks' book.pk %}" class="btn btn-primary">読んだ</a>
     <a href="{% url 'list-book' %}" class="btn btn-primary">一覧へ</a>
     <a href="{% url 'update-book' object.pk %}" class="btn btn-primary">編集する</a>
     <a href="{% url 'delete-book' object.pk %}" class="btn btn-primary">削除する</a>
@@ -34,14 +35,16 @@
   </div>
 
     <div class="border p-4 mb-2">
-      {% for review in object.review_set.all%}
+      {% for review in reviews %}
       <div>
         <h3 class="h4">{{ review.title }}</h3>
         <div class="px-2">
           <span>(投稿ユーザー: {{ review.user.username }})</span>
           <h6>評価: {{ review.rate}}</h6>
           <p>{{ review.text}}</p>
+          <a class="btn btn-outline-danger" href="{% url 'add-likes' review.id %}">♡ {{ review.likes }}</a>
         </div>
+       
       </div>
       {% endfor %}
     </div>
