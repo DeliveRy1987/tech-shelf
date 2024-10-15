@@ -5,71 +5,100 @@
 {% block content %}
 <h2 class="mypage-head">{{ user }}さんのMyPage</h2>
 
-<h3 class="wanna">読みたい本</h3>
-<div class="border rounded">
-  {% if favorite_books %}
-  <div class="row neworder">
-    {% for favorite in favorite_books %}
-    <div class="p-4 m-4 bg-light border border-primary rounded disp1 item">
 
-      <h2 class="text-dark text-truncate">{{ favorite.book.title }}</h2>
-      <img src="{{ favorite.book.thumbnail.url }}" class="img-thumbnail disp1" alt="thumbnail">
-      <h6 >カテゴリ: {{ favorite.book.category }}</h6>
-      {% if item.price == Null %}
-      <h6>価格：不明</h6>
-      {% else %}
-      <h6>価格：{{ favorite.book.price }} 円</h6>
-      {% endif %}
-      <div class="mt-3">
-        <a href="{% url 'detail-book' favorite.book.pk %}">詳細へ</a>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-    
-  {% else %}
-    <p>お気に入りに追加された投稿はありません。</p>
-  {% endif %}
-</div>
 
-<h3 class="haveread">読んだ本</h3>
-<div class="border rounded">
-  {% if haveread_books %}
-  <div class="row neworder">
-    {% for haveread in haveread_books %}
-    <div class="p-4 m-4 bg-light border border-primary rounded disp1 item">
-
-      <h2 class="text-dark text-truncate">{{ haveread.book.title }}</h2>
-      <img src="{{ haveread.book.thumbnail.url }}" class="img-thumbnail disp1" alt="thumbnail">
-      <h6 >カテゴリ: {{ haveread.book.category }}</h6>
-      {% if item.price == Null %}
-      <h6>価格：不明</h6>
-      {% else %}
-      <h6>価格：{{ haveread.book.price }} 円</h6>
-      {% endif %}
-      <div class="mt-3">
-        <a href="{% url 'detail-book' haveread.book.pk %}">詳細へ</a>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-    
-  {% else %}
-    <p>読んだことのある本はありません。</p>
-  {% endif %}
-</div>
 
 <style>
   .mypage-head {
     text-align: center;
     margin-top: 20px;
     }
-  
-  .haveread{
-    margin-top: 80px;
-  }
 </style>
 
+
+
+<main class="p-3">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <button
+        class="nav-link active"
+        data-bs-toggle="tab"
+        data-bs-target="#photo1"
+        type="button"
+      >
+        気になる本！
+      </button>
+    </li>
+    <li class="nav-item">
+      <button
+        class="nav-link"
+        data-bs-toggle="tab"
+        data-bs-target="#photo2"
+        type="button"
+      >
+        読んだ本！
+      </button>
+    </li>
+  </ul>
+
+  <!-- 中身 -->
+  <div class="tab-content">
+    <div id="photo1" class="tab-pane active">
+      <div class="border rounded">
+        {% if favorite_books %}
+        <div class="row neworder">
+          {% for favorite in favorite_books %}
+          <div class="p-4 m-4 bg-light border border-primary rounded disp1 item">
+      
+            <h2 class="text-dark text-truncate">{{ favorite.book.title }}</h2>
+            <img src="{{ favorite.book.thumbnail.url }}" class="img-thumbnail disp1" alt="thumbnail">
+            <h6 >カテゴリ: {{ favorite.book.category }}</h6>
+            {% if item.price == Null %}
+            <h6>価格：不明</h6>
+            {% else %}
+            <h6>価格：{{ favorite.book.price }} 円</h6>
+            {% endif %}
+            <div class="mt-3">
+              <a href="{% url 'detail-book' favorite.book.pk %}">詳細へ</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+          
+        {% else %}
+          <p>お気に入りに追加された投稿はありません。</p>
+        {% endif %}
+      </div>
+    </div>
+    <div id="photo2" class="tab-pane">
+      <div class="border rounded">
+        {% if haveread_books %}
+        <div class="row neworder">
+          {% for haveread in haveread_books %}
+          <div class="p-4 m-4 bg-light border border-primary rounded disp1 item">
+      
+            <h2 class="text-dark text-truncate">{{ haveread.book.title }}</h2>
+            <img src="{{ haveread.book.thumbnail.url }}" class="img-thumbnail disp1" alt="thumbnail">
+            <h6 >カテゴリ: {{ haveread.book.category }}</h6>
+            {% if item.price == Null %}
+            <h6>価格：不明</h6>
+            {% else %}
+            <h6>価格：{{ haveread.book.price }} 円</h6>
+            {% endif %}
+            <div class="mt-3">
+              <a href="{% url 'detail-book' haveread.book.pk %}">詳細へ</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+          
+        {% else %}
+          <p>読んだことのある本はありません。</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</main>
 
 
 {% endblock content %}

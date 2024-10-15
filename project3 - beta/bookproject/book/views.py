@@ -190,3 +190,7 @@ def add_likes(request, review_id):
     review.save()
     return redirect('detail-book', pk=review.book.id)  # 成功時に本の詳細ページにリダイレクト
 
+
+class HowToUse(ListView):
+    template_name = 'book/howtouse.html'
+    model = Book

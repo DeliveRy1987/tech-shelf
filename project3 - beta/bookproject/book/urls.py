@@ -15,4 +15,5 @@ urlpatterns = [
     path('add-to-haveread/<int:book_id>/', views.add_to_havereadbooks, name='add-to-havereadbooks'),
     path('mypage/', views.mypage, name='mypage'),
     path('book/review/<int:review_id>/like', views.add_likes, name = 'add-likes'),
+    path('book/howtouse/', views.HowToUse.as_view(), name = 'howtouse'),
 ]
