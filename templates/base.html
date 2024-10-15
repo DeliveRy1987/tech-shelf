@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>{% block title %}{% endblock title%}技術書探し</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybU5i3r5c5zKj1FVhBHG9H9uli1kIBKf0BEVPWU4fFgPC4sap" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-wEmeIV1mKuiNpK+Knr6jY2oHnU9zfw5t3eGm4y3RXDvoYh5STmUh1Bmv0e4l6c9" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMmfUaxzTh1HrKucWRmC4ilnKIGLq9VtqIvb6wW" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class = "navbar navbar-dark sticky-top bg-primary" >
+        <div class="navbar-nav d-flex flex-row">
+            <a class="navbar-brand icontext" href="#">We Tech Shelf</a>
+            
+            <a class="nav-link mx-3 highlight-text" href="{% url 'index' %}">HOME</a>
+            <a class="nav-link mx-3 highlight-text" href="{% url 'list-book' %}">技術書一覧</a>
+            <a class="nav-link mx-3 highlight-text" href="{% url 'create-book' %}">技術書追加</a>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Others
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'mypage' %}">My Page</a></li>
+                  <li><a class="dropdown-item" href="{% url 'howtouse' %}">使い方</a></li>
+                  <li><a class="dropdown-item" href="{% url 'question'%}">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="navbar-nav d-flex flex-row">
+            {% if request.user.is_authenticated %}
+            <a class = "nav-link mx-3 highlight-text" href="{% url 'accounts:logout' %}">ログアウト</a>
+            {% else %}
+            <a class="nav-link mx-3 highlight-text" href="{% url 'accounts:login' %}">ログイン</a>
+            <a class="nav-link mx-3 highlight-text" href="{% url 'accounts:signup' %}">会員登録</a>
+            {% endif %}
+        </div>
+    </nav>
+    <div class ="p-4">
+        <h1>{% block h1%}{% endblock%}</h1>
+
+
+         {% block content %}
+        {% endblock content %}
+    </div>
+    <div class="footer">
+        <div class="ego">
+            <a class="git" href="https://github.com/DeliveRy1987">Git Hub</a>
+            <p>© 2045 WE shelf</p>
+        </div>    
+    </div>
+    
+</body>
+</html>
