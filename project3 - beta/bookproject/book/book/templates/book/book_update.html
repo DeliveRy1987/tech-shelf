@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}「技術書一覧」{% endblock title %}
+
+{% block content %}
+    
+    <form method="POST" enctype="multipart/form-data" class="p-4 m-4 bg-light border border-primary rounded form-group">
+        {% csrf_token %}             <!-- csrfがないとエラーになる　ルール -->
+        {{ form.as_p }}                            
+        <button type="submit">修正する</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,93 @@
+body {
+    font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.back {
+    width: 100%;
+    height:600px;
+    background-color: #259bd1;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.back h2{
+    color: white;
+    text-align: center;
+    margin-top: 280px;
+}
+
+.highlight-text:hover {
+    font-weight: bold; /* カーソルを合わせると文字が太くなる */
+  }
+
+.disp1 {
+    width: 50%; /* 画像の幅を元のサイズの50%に */
+    height: auto; /* アスペクト比を維持する */
+}
+
+.search {
+    width : 40%;
+    height: auto;
+    margin: 50px auto 90px auto;
+}
+
+.eva {
+    width: 90%;
+    height: auto;
+    display: flex;
+    gap: 10%;
+}
+
+.neworder{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+ 
+.item {
+    flex-basis: calc(16% - 5px);
+    width: 200px;
+    height: auto;
+}
+
+.icontext {
+    font-weight: bold;
+    margin-left:7px ;
+}
+
+.footer {
+    width: 100%;
+    height:280px;
+    background-color: #151d1d;
+    margin-top: 200px;
+    text-align: center;
+}
+
+.ego {
+    color: white;
+    text-decoration: none;
+    padding-top:100px;
+}
+
+ .footer p {
+    color: white;
+    padding-top: 120px;
+}
+
+/* .git {
+    color: white;
+    text-decoration: none;
+    margin-top:100px;
+}  */
+
+.mypage-head {
+    text-align: center;
+}
