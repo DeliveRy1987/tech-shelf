@@ -135,4 +135,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'funky0127@gmail.com'  # 送信用のGmailアドレス
-EMAIL_HOST_PASSWORD = 'pegx vhtv kpta aqnj'  # アプリパスワードを使うことを推奨
+EMAIL_HOST_PASSWORD = ''  
